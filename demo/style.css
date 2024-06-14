@@ -16,3 +16,8 @@ Text Domain: demo
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
