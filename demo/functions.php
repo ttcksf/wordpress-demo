@@ -1,3 +1,9 @@
 <?php
-// functions.phpのみインポートなしで自動で取り込まれる特別なファイル
+  add_action( 'wp_body_open', function() {
+    ?>
+    <script>
+      alert("OK");
+    </script>
+    <?php
+  });
 ?>
