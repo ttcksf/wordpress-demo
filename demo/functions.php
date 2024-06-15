@@ -1,24 +1,20 @@
 <?php
-
-
   function my_scripts(){
-    // wp_enqueue_style("stylesheet", get_stylesheet_uri(), [], filemtime(get_template_directory() . "/style.css"),"all");
     wp_register_style("stylesheet", get_stylesheet_uri(), [], filemtime(get_template_directory() . "/style.css"),"all");
+    // bootstrapのダウンロード
+    // https://getbootstrap.jp/docs/5.3/getting-started/download/
+    // ライブラリを自分たちで変更することはないのでバージョン情報（タイムスタンプ）はfalse
+    wp_register_style("bs-stylesheet", get_template_directory_uri() . "/assets/src/lib/css/bootstrap.min.css", [], false,"all");
 
-    // 第四引数はtrueにするとbodyタグの閉じタグで読み込まれて、falseにするとheadタグの閉じタグで読み込まれる
-    // wp_enqueue_script("script", get_template_directory_uri() . "/assets/script.js", [], filemtime(get_template_directory() . "/assets/script.js"), true);
     wp_register_script("script", get_template_directory_uri() . "/assets/script.js", [], filemtime(get_template_directory() . "/assets/script.js"), true);
+    // jqueryは最初から読み込まれているため読み込みコードは不要
+    wp_register_script("bs-script", get_template_directory_uri() . "/assets/src/lib/js/bootstrap.min.js", ["jquery"], false, true);
 
     wp_enqueue_style("stylesheet");
+    wp_enqueue_style("bs-stylesheet");
     wp_enqueue_script("script");
+    wp_enqueue_script("bs-script");
 
-    // 複数ファイルをページごとに出力し分けたい時に短くかけるので、一度wp_registerで登録して、ハンドルネームのみでwp_enqueueを呼び出す形が効率的
-    // if(is_archive()){
-    //   wp_enqueue_style("stylesheet");
-    // }elseif(is_page()){
-    //   wp_enqueue_style("sub");
-    // }
-    // 最後にscreenshotを登録して終わる
   }
   add_action("wp_enqueue_scripts", "my_scripts");
 ?>
