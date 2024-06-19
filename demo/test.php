@@ -1,12 +1,17 @@
 <?php
-  // include "includes/Person.php";
-  // include "includes//Student.php";
+ trait Say_World{
+  public function say_hello(){
+    echo "Hello";
+  }
+ }
+//  通常のクラスのようにインスタンス化するものではない
+//  new Say_World()
 
-  // include文をテンプレート化して自動で読み込みをかけられる
-  spl_autoload_register(function($class){
-    include "includes" . $class . ".php";
-  });
-
-  new Person();
-  new Student();
+  class Base{
+    // traitを使う合図
+    use Say_World;
+  }
+  // traitを使うと複数クラスある時に継承の連鎖になりづらくなる
+  $base = new Base();
+  $base->say_hello();
 ?>
