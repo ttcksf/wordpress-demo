@@ -1,7 +1,11 @@
+<?php
+  wp_nav_menu([
+    "theme_location" => "header_menu",
+    "container_class" => "my_header_menu"
+  ]);
+?>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-     <!-- ロゴに差し替える -->
     <?php
       if(function_exists("the_custom_logo")){
         the_custom_logo();

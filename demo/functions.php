@@ -29,15 +29,19 @@
       "flex-height" => true,
       "header-text" => ["site-title","site-description"]
     ]);
-    // 外観→カスタマイズに「色」「背景画像」が追加される
     add_theme_support("custom-background",[
-      // 背景色（bodyタグにインラインCSSが追加される）
       "default-color" => "#fff",
-      // 背景画像（bodyタグにインラインCSSが追加される）
       "default-image" => "",
-      // これがないと自動で繰り返しされる
       "default-repeat" => "no-repeat"
     ]);
   }
   add_action("after_setup_theme", "theme_init");
+  // 外観にメニューが追加される
+  function register_menus(){
+    register_nav_menus([
+        "header_menu" => "ヘッダー",
+        "footer_menu" => "フッター"
+    ]);
+  }
+  add_action("init", "register_menus");
 ?>
