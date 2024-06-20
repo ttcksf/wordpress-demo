@@ -17,4 +17,15 @@
 
   }
   add_action("wp_enqueue_scripts", "my_scripts");
+
+  function theme_init(){
+    // RSSフィードリンク
+    add_theme_support("automatic-feed-links");
+    // サムネイル
+    add_theme_support('post-thumbnails');
+    // 投稿や固定ページのタイトルタグを自動出力
+    add_theme_support('title-tag');
+
+  }
+  add_action("after_setup_theme", "theme_init");
 ?>
