@@ -19,12 +19,18 @@
   add_action("wp_enqueue_scripts", "my_scripts");
 
   function theme_init(){
-    // RSSフィードリンク
     add_theme_support("automatic-feed-links");
-    // サムネイル
     add_theme_support('post-thumbnails');
-    // 投稿や固定ページのタイトルタグを自動出力
     add_theme_support('title-tag');
+    // 外観→カスタマイズ→サイト基本情報に「ロゴ」が追加される
+    add_theme_support('custom-logo',[
+      "width" => 400,
+      "height" => 100,
+      // falseにするとサイズ調整ができなくなる
+      "flex-width" => true,
+      "flex-height" => true,
+      "header-text" => ["site-title","site-description"]
+    ]);
 
   }
   add_action("after_setup_theme", "theme_init");
