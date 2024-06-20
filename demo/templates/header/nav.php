@@ -1,8 +1,13 @@
 <?php
-  wp_nav_menu([
-    "theme_location" => "header_menu",
-    "container_class" => "my_header_menu"
-  ]);
+  // いきなり表示するのではなく一旦メニュー情報のみを取得する
+  $locations = get_nav_menu_locations();
+  // var_dump($locations);
+  $menu_id = $locations["header_menu"];
+  $header_menus = wp_get_nav_menu_items($menu_id);
+  // echo "<pre>";
+  // print_r($header_menus);
+  // wp_die();
+  
 ?>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
