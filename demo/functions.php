@@ -22,16 +22,22 @@
     add_theme_support("automatic-feed-links");
     add_theme_support('post-thumbnails');
     add_theme_support('title-tag');
-    // 外観→カスタマイズ→サイト基本情報に「ロゴ」が追加される
     add_theme_support('custom-logo',[
       "width" => 400,
       "height" => 100,
-      // falseにするとサイズ調整ができなくなる
       "flex-width" => true,
       "flex-height" => true,
       "header-text" => ["site-title","site-description"]
     ]);
-
+    // 外観→カスタマイズに「色」「背景画像」が追加される
+    add_theme_support("custom-background",[
+      // 背景色（bodyタグにインラインCSSが追加される）
+      "default-color" => "#fff",
+      // 背景画像（bodyタグにインラインCSSが追加される）
+      "default-image" => "",
+      // これがないと自動で繰り返しされる
+      "default-repeat" => "no-repeat"
+    ]);
   }
   add_action("after_setup_theme", "theme_init");
 ?>
