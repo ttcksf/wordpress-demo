@@ -17,8 +17,27 @@
       <?php if(!empty($header_menus) && is_array($header_menus)):?>
         <ul class="navbar-nav mr-auto">
           <?php foreach($header_menus as $header_menu):?>
-            <li class="nav-item">
-              <a class="nav-link" href="<?php echo esc_url($header_menu->url)?>"><?php echo esc_html($header_menu->title);?></a>
+            <li class="nav-item <?php if($header_menu->menu_item_parent != 0): ?>dropdown<?php endif; ?>">
+              <?php if ($header_menu->menu_item_parent) : ?>
+                <a class="nav-link dropdown-toggle" href="<?php echo esc_url($header_menu->url); ?>" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <?php echo esc_html($header_menu->title); ?>
+                </a>
+                <ul class="dropdown-menu">
+                  <?php foreach ($header_menus as $sub_menu) : ?>
+                    <?php if ($sub_menu->menu_item_parent == $header_menu->ID) : ?>
+                      <li class="dropdown-item">
+                        <a class="nav-link" href="<?php echo esc_url($sub_menu->url); ?>">
+                          <?php echo esc_html($sub_menu->title); ?>
+                        </a>
+                      </li>
+                    <?php endif; ?>
+                  <?php endforeach; ?>
+                </ul>
+              <?php else:?>
+                <a class="nav-link" href="<?php echo esc_url($header_menu->url)?>">
+                  <?php echo esc_html($header_menu->title);?>
+                </a>
+              <?php endif;?>
             </li>
           <?php endforeach;?>
         </ul>
