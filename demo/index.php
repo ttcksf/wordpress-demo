@@ -1,4 +1,4 @@
-<!-- 投稿と固定ページの違い（post_type） -->
+<!-- テンプレート階層と表示設定 -->
 <?php get_header();?>
   <div class="content">
     <h1>Hello World</h1>
