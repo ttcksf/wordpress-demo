@@ -12,12 +12,9 @@
               <?php while(have_posts()):
                       the_post();
               ?>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                  <h3><?php the_title();?></h3>
-                  <div><?php the_excerpt();?></div>
-                </div>
+                <?php get_template_part("templates/content-post");?>
               <?php endwhile;?>
-            </div>
+            </div>            
           <?php endif;?>
         </div>
       <?php endif;?>
