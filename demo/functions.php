@@ -30,6 +30,8 @@
       "default-image" => "",
       "default-repeat" => "no-repeat"
     ]);
+
+    add_image_size("custom-thumbnail", 1000, 300, true);
   }
   add_action("after_setup_theme", "theme_init");
   function register_menus(){

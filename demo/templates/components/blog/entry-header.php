@@ -6,13 +6,13 @@
   ?>
     <div class="entry-image mb-3">
       <a href="<?php echo esc_url(get_permalink());?>">
-        <!-- 第二引数がclass名 -->
         <?php $attr = ['class' => 'img'];?>
-        <?php the_post_thumbnail("thumbnail",$attr);?>
+        <!-- 第一引数はサイズ(3種類のサイズを細かく設定するには設定→メディアで数字を変更しておく) -->
+         <!-- functions.phpでカスタムサイズを作って引数に入れてもOK -->
+        <?php the_post_thumbnail("custom-thumbnail",$attr);?>
       </a>
     </div>
   <?php else:?>
-    <!-- https://dummyimage.com/ -->
     <div class="no-image">
       <img src="https://dummyimage.com/150x150/000/fff">
     </div>
