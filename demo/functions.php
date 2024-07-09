@@ -41,4 +41,9 @@
     ]);
   }
   add_action("init", "register_menus");
+
+  function custom_excerpt(){
+    return "...";
+  }
+  add_filter("excerpt_more","custom_excerpt");
 ?>
