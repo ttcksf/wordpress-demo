@@ -1,9 +1,9 @@
 <?php
-  // $published_date = get_the_date();
-  // $published_date = get_the_date("Y/m/d");
-  $published_date = get_the_date("Y/m/d l");
-  $published_time = get_the_time();
+  $published_date = get_the_date();
+  // ユーザーから追加して記事に設定しておく
+  $post_author = get_the_author();
 ?>
 <div class="date">
-  <h3><?php echo $published_date;?><span><?php echo $published_time;?></span></h3>
+  <h3><?php echo $published_date;?></h3>
+  <h6>投稿者：<?php echo $post_author;?></h6>
 </div>
