@@ -6,11 +6,14 @@
           <?php if(is_home() && !is_front_page()): ?>
             <header class="mb-5">
               <h1><?php single_post_title();?></h1>
-              <!-- 投稿に設定されたカテゴリーのみが取得される -->
-               <!-- デフォルトはulとliによる箇条書き -->
-              <!-- <?php the_category();?> -->
-               <!-- 引数に「,」を入れるとulとliがなくなる -->
               <p>カテゴリー一覧：<?php the_category(",");?></p>
+              <!-- デフォルトで「タグ：」が先頭についてaタグで表示される -->
+              <!-- <?php the_tags();?> -->
+               <!-- 引数に入れた文字が先頭につく -->
+              <?php the_tags("タグ一覧：");?>
+
+              <!-- ulとliで出したい時 -->
+               <!-- <?php the_tags("<ul><li>","</li><li>","</li></ul>");?> -->
             </header>
             <div class="row">
               <?php while(have_posts()):
