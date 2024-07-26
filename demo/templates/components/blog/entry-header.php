@@ -14,7 +14,9 @@
     </div>
   <?php else:?>
     <div class="no-image">
-      <img src="https://dummyimage.com/150x150/000/fff">
+      <a href="<?php echo esc_url(get_permalink());?>">
+        <img src="https://dummyimage.com/150x150/000/fff">
+      </a>
     </div>
   <?php endif;?>
 </header>
