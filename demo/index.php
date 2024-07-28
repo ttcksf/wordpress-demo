@@ -21,7 +21,7 @@
         </div>
       <?php endif;?>
       <?php if(paginate_links()):?>
-        <div class="container mb-4">
+        <div class="pagination container mb-4">
             <?php
             echo paginate_links(array(
                 'show_all' => true,
