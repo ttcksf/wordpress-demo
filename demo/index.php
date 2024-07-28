@@ -20,6 +20,16 @@
           <?php endif;?>
         </div>
       <?php endif;?>
+      <?php if(paginate_links()):?>
+        <div class="container mb-4">
+            <?php
+            echo paginate_links(array(
+                'show_all' => true,
+                'prev_next' => true,
+            ));
+            ?>
+        </div>
+      <?php endif;?>
     </main>
   </div>
 <?php get_footer();?>
