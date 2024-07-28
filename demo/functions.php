@@ -43,7 +43,8 @@
   add_action("init", "register_menus");
 
   function custom_excerpt(){
-    return "...";
+    global $post;
+    return '...<button class="btn btn-info"><a class="text-white" href="'. get_permalink($post->ID) .'">続きを読む</a></button>';
   }
   add_filter("excerpt_more","custom_excerpt");
 ?>
