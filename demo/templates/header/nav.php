@@ -42,10 +42,9 @@
           <?php endforeach;?>
         </ul>
       <?php endif;?>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <!-- デフォルトでinputタグが挿入される -->
+       <!-- カスタマイズするにはsearchform.phpを作る -->
+      <?php get_search_form(); ?>
     </div>
   </div>
 </nav>
